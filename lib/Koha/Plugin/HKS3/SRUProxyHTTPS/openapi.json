@@ -1,0 +1,74 @@
+{
+  "/sru-proxy": {
+    "get": {
+      "x-mojo-to": "HKS3::SRUProxyHTTPS::Controller#proxy",
+      "operationId": "SRUProxyHTTP",
+      "tags": ["sru"],
+      "parameters": [
+        {
+          "name": "endpoint",
+          "in": "query",
+          "description": "SRU endpoint to call",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "query",
+          "in": "query",
+          "description": "SRU query",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "startRecord",
+          "in": "query",
+          "description": "startRecord",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "maximumRecords",
+          "in": "query",
+          "description": "maximumRecords",
+          "required": false,
+          "type": "integer"
+        },
+        {
+          "name": "operation",
+          "in": "query",
+          "description": "operation",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "in": "query",
+          "description": "version",
+          "required": false,
+          "type": "string"
+        }
+      ],
+      "produces": [
+        "application/xml"
+      ],
+      "responses": {
+        "200": {
+          "description": "SRU result XML"
+        },
+        "404": {
+          "description": "An error occured",
+          "schema": {
+              "type": "object",
+                "properties": {
+                  "error": {
+                    "description": "An explanation for the error",
+                    "type": "string"
+                  }
+                }
+          }
+        }
+      }
+    }
+  }
+}
+
