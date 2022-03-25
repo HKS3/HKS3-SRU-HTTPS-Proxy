@@ -6,7 +6,13 @@ Koha SRU does not support services running via https. This plugin provides a sim
 
 # Installation
 
-Get a kzp file (TODO: provide it...) and install it via the Koha plugin system
+Get a kzp file from the [release page](https://github.com/HKS3/HKS3-SRU-HTTPS-Proxy/releases) and install it via the Koha plugin system.
+
+## Build kzp file from source
+
+```
+cd lib; zip -r ../hks3_sru_https_proxy-0.900.kpz Koha/; cd ..
+```
 
 # Configuration
 
@@ -17,5 +23,13 @@ Use the hostname of your own koha instance for `hostname` (use an address that i
 For `database` use the endpoint of this Plugin with the hardcoded, URI-escaped URL of the actual SRU service you want to actually call as a param named `endpoint`. Example: `api/v1/contrib/sru-proxy-https/sru-proxy?endpoint=https%3A%2F%2Fservices.obvsg.at%2Fsru%2FOBV-LIT`
 
 As always, set `Additional SRU Options` to `sru=get, sru_version=1.2`
+
+## URI-Escape endpoint
+
+To properly URI-Escape the `endpoint` parameter, run:
+
+```
+perl -MURI::Escape=uri_escape -E 'say uri_escape("https://api.example.com/some/sru/endpoint")'
+```
 
 
