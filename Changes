@@ -1,0 +1,7 @@
+Revision history for Koha::Plugin::HKS3::SRUProxyHTTPS
+
+0.900	2022-03-25T20:43:07
+
+    - First release, seems to work good enough, at least for https://katalog.landesbibliothek.steiermark.at using https://services.obvsg.at/sru/OBV-LIT/
+
+
