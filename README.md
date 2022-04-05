@@ -22,7 +22,7 @@ Use the hostname of your own koha instance for `hostname` (use an address that i
 
 For `database` use the endpoint of this Plugin with the hardcoded, URI-escaped URL of the actual SRU service you want to actually call as a param named `endpoint`. Example: `api/v1/contrib/sru-proxy-https/sru-proxy?endpoint=https%3A%2F%2Fservices.obvsg.at%2Fsru%2FOBV-LIT`
 
-As always, set `Additional SRU Options` to `sru=get, sru_version=1.2`
+As always, set `Additional SRU Options` to `sru=get, sru_version=1.2` and fiddle with SRU search field mappings.
 
 ## URI-Escape endpoint
 
@@ -32,4 +32,7 @@ To properly URI-Escape the `endpoint` parameter, run:
 perl -MURI::Escape=uri_escape -E 'say uri_escape("https://api.example.com/some/sru/endpoint")'
 ```
 
+# Thanks
+
+Development of this plugin was sponsored by [Steiermärkische Landesbibliothek](https://www.landesbibliothek.steiermark.at/).
 
